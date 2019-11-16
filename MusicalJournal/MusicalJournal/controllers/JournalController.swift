@@ -9,17 +9,12 @@
 import UIKit
 
 protocol JournalListViewControllerDelegate {
-    func journalListViewController(_ controller: JournalController, didSelectJournal: Journal)
+    func journalListViewController(_ controller: JournalController, didSelectJournal: Journal, indexPath: IndexPath, first: Bool)
 }
 
 class JournalController: UITableViewController {
     
-    var journals: [Journal] = [
-        Journal(title: "Hello", text: "WHAT"),
-        Journal(title: "What", text: "WHAT"),
-        Journal(title: "The", text: "WHAT"),
-        Journal(title: "Fuck", text: "WHAT")
-    ]
+    var journals: [Journal] = []
     
     override func viewDidLoad() {
         self.tableView.delegate = self
@@ -27,6 +22,21 @@ class JournalController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "JournalCell")
         self.tableView.reloadData()
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor(red: 26/255.0, green: 26/255.0, blue: 26/255.0, alpha: 1)
+        self.tableView.separatorStyle = .none
+        
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
+        navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
+        
+        journals.insert((Journal(title: "New Story", text: "Write a story!")), at: 0)
+        guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
+               if let vc = vc as?  DetailController {
+                   return  true
+               }
+               return false
+           }) as? DetailController else {return}
+        detail.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: true)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +45,12 @@ class JournalController: UITableViewController {
     
     override  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath)
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 1)
+        cell.selectedBackgroundView = bgColorView
         guard let journalCell = cell as? JournalCell else {return cell}
+        
+        journalCell.titleLabel.text = journals[indexPath.row].title
         
         return journalCell
     }
@@ -43,21 +58,31 @@ class JournalController: UITableViewController {
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedJournal  = journals[indexPath.row]
         
-            
         guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
             if let vc = vc as?  DetailController {
                 return  true
             }
             return false
         }) as? DetailController else {return}
-        detail.journalListViewController(self, didSelectJournal: selectedJournal)
+        detail.journalListViewController(self, didSelectJournal: selectedJournal, indexPath: indexPath, first: false)
         self.splitViewController?.showDetailViewController(detail, sender: self)
-        
     }
     
     override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
   
+    @IBAction func addToTable(_ sender: UIButton) {
+        journals.insert((Journal(title: "New Story", text: "Write a story!")), at: 0)
+        guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
+               if let vc = vc as?  DetailController {
+                   return  true
+               }
+               return false
+           }) as? DetailController else {return}
+        detail.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: false)
+        self.tableView.reloadData()
+    }
     
 }
+

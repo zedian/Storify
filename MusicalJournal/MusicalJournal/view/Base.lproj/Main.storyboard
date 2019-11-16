@@ -11,12 +11,19 @@
         <!--Detail Controller-->
         <scene sceneID="9l7-Ld-M7M">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SR6-cN-1q2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="yWM-5t-MmO" customClass="DetailController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BsK-GZ-Org">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRe-pX-nwS">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3I-D6-eUc">
+                                <rect key="frame" x="0.0" y="514.5" width="834" height="430.5"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNi-Zz-hS1">
                                 <rect key="frame" x="0.0" y="945" width="834" height="167"/>
                                 <constraints>
@@ -27,77 +34,81 @@
                                 </connections>
                             </containerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-K4-boa">
-                                <rect key="frame" x="0.0" y="83.5" width="834" height="861.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="83.5" width="834" height="431"/>
+                                <color key="backgroundColor" red="0.10196178409999999" green="0.10195901239999999" blue="0.1019608751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXJ-Dv-Nsa">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Story" placeholder="New Story" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ4-4L-BJs">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="83.5"/>
+                                <color key="backgroundColor" red="0.10334606109324762" green="0.10334606109324762" blue="0.10334606109324762" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gXJ-Dv-Nsa" secondAttribute="height" multiplier="10:1" id="d0J-ol-RXc"/>
+                                    <constraint firstAttribute="width" secondItem="cZ4-4L-BJs" secondAttribute="height" multiplier="10:1" id="Tjb-YC-Syj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="top" secondItem="Djj-K4-boa" secondAttribute="bottom" id="0cP-hY-AKl"/>
+                            <constraint firstItem="P3I-D6-eUc" firstAttribute="width" secondItem="Djj-K4-boa" secondAttribute="width" id="1gV-G5-VFi"/>
+                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="top" secondItem="P3I-D6-eUc" secondAttribute="bottom" id="6CJ-P2-DcK"/>
                             <constraint firstItem="BNi-Zz-hS1" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="6jc-s6-slK"/>
-                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="6rn-ew-tc4"/>
-                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="gXJ-Dv-Nsa" secondAttribute="bottom" id="DBf-NC-81Y"/>
-                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" id="QwR-b0-5CS"/>
-                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="gXJ-Dv-Nsa" secondAttribute="bottom" id="Ucv-en-hoM"/>
-                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="in5-hb-zIT"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="cZ4-4L-BJs" secondAttribute="bottom" id="81R-zO-cuU"/>
+                            <constraint firstItem="P3I-D6-eUc" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="APt-E7-oHh"/>
+                            <constraint firstItem="cZ4-4L-BJs" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="AhE-Am-Cfg"/>
+                            <constraint firstItem="sRe-pX-nwS" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="BP6-Cm-ayT"/>
+                            <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="P3I-D6-eUc" secondAttribute="trailing" id="KIn-KX-tne"/>
+                            <constraint firstItem="6Ex-1S-Vdi" firstAttribute="bottom" secondItem="sRe-pX-nwS" secondAttribute="bottom" id="L9c-0P-5Pa"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="LNF-qX-YOw"/>
+                            <constraint firstItem="sRe-pX-nwS" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" id="ZED-Ep-Rlv"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="bcH-ml-Xd0"/>
+                            <constraint firstItem="P3I-D6-eUc" firstAttribute="height" secondItem="Djj-K4-boa" secondAttribute="height" id="byp-LF-CeD"/>
+                            <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="cZ4-4L-BJs" secondAttribute="trailing" id="dBF-Hr-PuF"/>
+                            <constraint firstItem="cZ4-4L-BJs" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" id="iCr-3z-46I"/>
                             <constraint firstItem="Djj-K4-boa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="mkB-mp-8iB"/>
                             <constraint firstItem="Djj-K4-boa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="p3N-mV-lMw"/>
                             <constraint firstItem="BNi-Zz-hS1" firstAttribute="bottom" secondItem="6Ex-1S-Vdi" secondAttribute="bottom" id="s9D-Xm-orF"/>
+                            <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="sRe-pX-nwS" secondAttribute="trailing" id="tLD-fV-A5W"/>
+                            <constraint firstItem="P3I-D6-eUc" firstAttribute="top" secondItem="Djj-K4-boa" secondAttribute="bottom" id="tNe-f0-DNc"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="cZ4-4L-BJs" secondAttribute="bottom" id="thr-AO-c3W"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="cZ4-4L-BJs" secondAttribute="bottom" id="tto-E2-Bfs"/>
                             <constraint firstItem="BNi-Zz-hS1" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="yTM-g8-ffe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ex-1S-Vdi"/>
                     </view>
                     <connections>
+                        <outlet property="clearView" destination="sRe-pX-nwS" id="iKh-IX-de9"/>
                         <outlet property="spotifyView" destination="BNi-Zz-hS1" id="jfF-xO-evM"/>
+                        <outlet property="textField" destination="cZ4-4L-BJs" id="4SN-CY-9TO"/>
                         <outlet property="textView" destination="Djj-K4-boa" id="8vL-BN-pEv"/>
-                        <outlet property="titleLabel" destination="gXJ-Dv-Nsa" id="2xz-kg-iOR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SR6-cN-1q2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="-494"/>
+            <point key="canvasLocation" x="-1105.7553956834533" y="-494.24460431654677"/>
         </scene>
-        <!--Journal-->
+        <!--Storify-->
         <scene sceneID="Np9-Mk-52c">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="9fs-Mm-TkU" customClass="JournalController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckb-z1-UXt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q4N-Ve-Zpa">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q4N-Ve-Zpa" id="bTJ-0W-ZTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9fs-Mm-TkU" id="bvh-YF-Hnp"/>
-                            <outlet property="delegate" destination="9fs-Mm-TkU" id="qaX-s0-jMX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Journal" id="EP5-RE-hjR">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vwQ-2j-CJK">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="FAh-5c-6UN" kind="show" id="ZaB-GG-Cbs"/>
-                            </connections>
+                    <navigationItem key="navigationItem" title="Storify" id="EP5-RE-hjR">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Tvs-ts-ymw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="dXj-jw-egv">
+                                <rect key="frame" x="279" y="13" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToTable:" destination="9fs-Mm-TkU" eventType="touchUpInside" id="n94-Ho-WQG"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -134,15 +145,31 @@
             </objects>
             <point key="canvasLocation" x="-1863" y="-831"/>
         </scene>
-        <!--View Controller-->
+        <!--Spotify Controller-->
         <scene sceneID="4UP-vt-VwG">
             <objects>
-                <viewController id="dvS-rx-1wO" sceneMemberID="viewController">
+                <viewController id="dvS-rx-1wO" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Cn-xR-edM">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="167"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6O-dM-o47">
+                                <rect key="frame" x="30" y="30" width="774" height="107"/>
+                                <state key="normal" title="CONNECT"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10196178409999999" green="0.10195901239999999" blue="0.1019608751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="507-rK-ddT" firstAttribute="trailing" secondItem="t6O-dM-o47" secondAttribute="trailing" constant="30" id="M3r-kn-Dln"/>
+                            <constraint firstItem="507-rK-ddT" firstAttribute="bottom" secondItem="t6O-dM-o47" secondAttribute="bottom" constant="30" id="P0l-aq-y3g"/>
+                            <constraint firstItem="t6O-dM-o47" firstAttribute="leading" secondItem="507-rK-ddT" secondAttribute="leading" constant="30" id="bbN-hn-GJ3"/>
+                            <constraint firstItem="t6O-dM-o47" firstAttribute="top" secondItem="507-rK-ddT" secondAttribute="top" constant="30" id="oTw-oL-f9y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="507-rK-ddT"/>
                     </view>
+                    <connections>
+                        <outlet property="connectButton" destination="t6O-dM-o47" id="ZDk-wr-KFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOA-3S-5aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +180,7 @@
             <objects>
                 <viewController id="FAh-5c-6UN" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2If-OM-LsR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="SZp-cm-Ixs"/>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B6164B13-DD65-49A9-936F-E88BD4993CEE"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07332014-AC94-4E74-8491-C7AA28A8C7CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicalJournal/models/SpotifyManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SpotifyManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "07332014-AC94-4E74-8491-C7AA28A8C7CD - e8d359d4c5d3bd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MusicalJournal.SpotifyManager.configuration.getter : __C.SPTConfiguration"
+                  moduleName = "MusicalJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/philiptam/Projects/codejam-2019/MusicalJournal/MusicalJournal/models/SpotifyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "376">
+               </Location>
+               <Location
+                  uuid = "07332014-AC94-4E74-8491-C7AA28A8C7CD - b042593a3ae70e81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.SPTConfiguration in MusicalJournal.SpotifyManager.configuration.getter : __C.SPTConfiguration"
+                  moduleName = "MusicalJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/philiptam/Projects/codejam-2019/MusicalJournal/MusicalJournal/models/SpotifyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "07332014-AC94-4E74-8491-C7AA28A8C7CD - 86f93ef47034c3dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MusicalJournal.SpotifyManager.configuration.setter : __C.SPTConfiguration"
+                  moduleName = "MusicalJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/philiptam/Projects/codejam-2019/MusicalJournal/MusicalJournal/models/SpotifyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

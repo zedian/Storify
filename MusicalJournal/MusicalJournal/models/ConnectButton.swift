@@ -14,13 +14,14 @@ class ConnectButton: UIButton {
         super.init(frame: CGRect.zero)
         backgroundColor = buttonBackgroundColor
         contentEdgeInsets = UIEdgeInsets(top: 11.75, left: 32.0, bottom: 11.75, right: 32.0)
-        layer.cornerRadius = 20.0
+        layer.cornerRadius = self.frame.height / 2
         translatesAutoresizingMaskIntoConstraints = false
         let title = NSAttributedString(string: title, attributes: titleAttributes)
         setAttributedTitle(title, for: .normal)
     }
 
+
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+       super.init(coder: aDecoder)
     }
 }

@@ -20,7 +20,8 @@ class SpotifyManager  {
    let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURL)
        // Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
        // otherwise another app switch will be required
-       configuration.playURI = "spotify:track:4uLU6hMCjMI75M1A2tKUQC"
+       configuration.playURI = ""
+//    spotify:track:4uLU6hMCjMI75M1A2tKUQC"
       return configuration
   }()
 

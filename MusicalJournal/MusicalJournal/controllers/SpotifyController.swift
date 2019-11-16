@@ -11,7 +11,20 @@ import UIKit
 class SpotifyController: UIViewController {
 
     // MARK: - Subviews
-
+    @IBOutlet weak var connectButton: UIButton! {
+        didSet {
+            connectButton.backgroundColor = UIColor(red:(29.0 / 255.0), green:(185.0 / 255.0), blue:(84.0 / 255.0), alpha:1.0)
+            connectButton.contentEdgeInsets = UIEdgeInsets(top: 11.75, left: 32.0, bottom: 11.75, right: 32.0)
+            connectButton.translatesAutoresizingMaskIntoConstraints = false
+            let title = NSAttributedString(string: "Connect", attributes: [
+                .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy),
+                .foregroundColor: UIColor.white,
+                .kern: 2.0
+            ])
+            connectButton.setAttributedTitle(title, for: .normal)
+        }
+    }
+    
     fileprivate lazy var connectLabel: UILabel = {
         let label = UILabel()
         label.text = "Connect your Spotify account"
@@ -19,7 +32,6 @@ class SpotifyController: UIViewController {
         return label
     }()
 
-    fileprivate lazy var connectButton = ConnectButton(title: "CONNECT")
     fileprivate lazy var disconnectButton = ConnectButton(title: "DISCONNECT")
 
     fileprivate lazy var pauseAndPlayButton: UIButton = {
@@ -46,19 +58,14 @@ class SpotifyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SpotifyManager.shared.appRemote.delegate = self
-//        /view.backgroundColor = UIColor.white
 
         view.addSubview(connectLabel)
-        view.addSubview(connectButton)
         view.addSubview(disconnectButton)
         view.addSubview(imageView)
         view.addSubview(trackLabel)
         view.addSubview(pauseAndPlayButton)
 
         let constant: CGFloat = 16.0
-
-        connectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        connectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
         disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         disconnectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
@@ -80,13 +87,16 @@ class SpotifyController: UIViewController {
         pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50)
         pauseAndPlayButton.sizeToFit()
 
-        connectButton.sizeToFit()
         disconnectButton.sizeToFit()
 
         connectButton.addTarget(self, action: #selector(didTapConnect(_:)), for: .touchUpInside)
         disconnectButton.addTarget(self, action: #selector(didTapDisconnect(_:)), for: .touchUpInside)
 
         updateViewBasedOnConnected()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.connectButton.layer.cornerRadius = self.connectButton.frame.height / 2
     }
 
     func update(playerState: SPTAppRemotePlayerState) {
