@@ -3,16 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C7BEC6523805CEA00EDB340 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BEC6423805CEA00EDB340 /* Journal.swift */; };
+		1C7BEC6723805D9B00EDB340 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BEC6623805D9B00EDB340 /* DetailController.swift */; };
+		1C7BEC692380640F00EDB340 /* SplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BEC682380640F00EDB340 /* SplitController.swift */; };
 		1CA20A80237FF73000B8335F /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA20A7F237FF73000B8335F /* SpotifyManager.swift */; };
 		1CA20A81237FF77E00B8335F /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBFE80237FF65F00EABBEF /* ConnectButton.swift */; };
 		1CC8CF9E237FED050005A5F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8CF9D237FED050005A5F6 /* SceneDelegate.swift */; };
 		1CC8CFA0237FEDCD0005A5F6 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8CF9F237FEDCD0005A5F6 /* JournalController.swift */; };
-		1CC8CFA3237FF5D30005A5F6 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA1237FF5D30005A5F6 /* StoryCell.swift */; };
-		1CC8CFA4237FF5D30005A5F6 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA2237FF5D30005A5F6 /* StoryCell.xib */; };
+		1CC8CFA3237FF5D30005A5F6 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA1237FF5D30005A5F6 /* JournalCell.swift */; };
+		1CC8CFA4237FF5D30005A5F6 /* JournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA2237FF5D30005A5F6 /* JournalCell.xib */; };
 		1CD6478D237FADDC00FB389E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD6478C237FADDC00FB389E /* AppDelegate.swift */; };
 		1CD64791237FADDC00FB389E /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD64790237FADDC00FB389E /* SpotifyController.swift */; };
 		1CD64794237FADDC00FB389E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD64792237FADDC00FB389E /* Main.storyboard */; };
@@ -21,6 +24,8 @@
 		1CD647A4237FADDF00FB389E /* MusicalJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD647A3237FADDF00FB389E /* MusicalJournalTests.swift */; };
 		1CD647AF237FADDF00FB389E /* MusicalJournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD647AE237FADDF00FB389E /* MusicalJournalUITests.swift */; };
 		1CD647BE237FAEAA00FB389E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD647BD237FAEAA00FB389E /* SpotifyiOS.framework */; };
+		1CF48B4623807BFF00C10E01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */; };
+		38B13938336990FD6E215849 /* libPods-MusicalJournal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C7BEC6423805CEA00EDB340 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		1C7BEC6623805D9B00EDB340 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		1C7BEC682380640F00EDB340 /* SplitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitController.swift; sourceTree = "<group>"; };
 		1CA20A7F237FF73000B8335F /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		1CC8CF9D237FED050005A5F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1CC8CF9F237FEDCD0005A5F6 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
-		1CC8CFA1237FF5D30005A5F6 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
-		1CC8CFA2237FF5D30005A5F6 /* StoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
+		1CC8CFA1237FF5D30005A5F6 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
+		1CC8CFA2237FF5D30005A5F6 /* JournalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JournalCell.xib; sourceTree = "<group>"; };
 		1CD64789237FADDC00FB389E /* MusicalJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicalJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD6478C237FADDC00FB389E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD64790237FADDC00FB389E /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,10 @@
 		1CD647BD237FAEAA00FB389E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		1CD647C0237FAF7F00FB389E /* MusicalJournal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicalJournal-Bridging-Header.h"; sourceTree = "<group>"; };
 		1CEBFE80237FF65F00EABBEF /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
+		1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.release.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.release.xcconfig"; sourceTree = "<group>"; };
+		9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicalJournal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.debug.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD647BE237FAEAA00FB389E /* SpotifyiOS.framework in Frameworks */,
+				38B13938336990FD6E215849 /* libPods-MusicalJournal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,19 +116,20 @@
 			isa = PBXGroup;
 			children = (
 				1CEBFE80237FF65F00EABBEF /* ConnectButton.swift */,
-				1CC8CFA7237FF5E20005A5F6 /* StoryCell */,
+				1CC8CFA7237FF5E20005A5F6 /* JournalCell */,
 				1CA20A7F237FF73000B8335F /* SpotifyManager.swift */,
+				1C7BEC6423805CEA00EDB340 /* Journal.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
 		};
-		1CC8CFA7237FF5E20005A5F6 /* StoryCell */ = {
+		1CC8CFA7237FF5E20005A5F6 /* JournalCell */ = {
 			isa = PBXGroup;
 			children = (
-				1CC8CFA1237FF5D30005A5F6 /* StoryCell.swift */,
-				1CC8CFA2237FF5D30005A5F6 /* StoryCell.xib */,
+				1CC8CFA1237FF5D30005A5F6 /* JournalCell.swift */,
+				1CC8CFA2237FF5D30005A5F6 /* JournalCell.xib */,
 			);
-			path = StoryCell;
+			path = JournalCell;
 			sourceTree = "<group>";
 		};
 		1CD64780237FADDC00FB389E = {
@@ -127,6 +141,8 @@
 				1CD647AD237FADDF00FB389E /* MusicalJournalUITests */,
 				1CD647BF237FAF2400FB389E /* Framework */,
 				1CD6478A237FADDC00FB389E /* Products */,
+				5195FACE30D7E5ABF2E3601F /* Pods */,
+				2D8CEA67808C39F56FB7AAE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +166,7 @@
 				1CD6478C237FADDC00FB389E /* AppDelegate.swift */,
 				1CD64795237FADDF00FB389E /* Assets.xcassets */,
 				1CD6479A237FADDF00FB389E /* Info.plist */,
+				1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */,
 			);
 			path = MusicalJournal;
 			sourceTree = "<group>";
@@ -185,8 +202,27 @@
 			children = (
 				1CD64790237FADDC00FB389E /* SpotifyController.swift */,
 				1CC8CF9F237FEDCD0005A5F6 /* JournalController.swift */,
+				1C7BEC6623805D9B00EDB340 /* DetailController.swift */,
+				1C7BEC682380640F00EDB340 /* SplitController.swift */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		2D8CEA67808C39F56FB7AAE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5195FACE30D7E5ABF2E3601F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */,
+				9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CD647B3237FADDF00FB389E /* Build configuration list for PBXNativeTarget "MusicalJournal" */;
 			buildPhases = (
+				39BA6F5FC72057953B111C06 /* [CP] Check Pods Manifest.lock */,
 				1CD64785237FADDC00FB389E /* Sources */,
 				1CD64786237FADDC00FB389E /* Frameworks */,
 				1CD64787237FADDC00FB389E /* Resources */,
+				1E74120788B8D574B5F201B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,8 +333,9 @@
 			files = (
 				1CD64799237FADDF00FB389E /* LaunchScreen.storyboard in Resources */,
 				1CD64796237FADDF00FB389E /* Assets.xcassets in Resources */,
+				1CF48B4623807BFF00C10E01 /* GoogleService-Info.plist in Resources */,
 				1CD64794237FADDC00FB389E /* Main.storyboard in Resources */,
-				1CC8CFA4237FF5D30005A5F6 /* StoryCell.xib in Resources */,
+				1CC8CFA4237FF5D30005A5F6 /* JournalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +355,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E74120788B8D574B5F201B2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39BA6F5FC72057953B111C06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusicalJournal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1CD64785237FADDC00FB389E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -323,11 +404,14 @@
 			files = (
 				1CA20A80237FF73000B8335F /* SpotifyManager.swift in Sources */,
 				1CD64791237FADDC00FB389E /* SpotifyController.swift in Sources */,
+				1C7BEC692380640F00EDB340 /* SplitController.swift in Sources */,
 				1CA20A81237FF77E00B8335F /* ConnectButton.swift in Sources */,
+				1C7BEC6523805CEA00EDB340 /* Journal.swift in Sources */,
 				1CD6478D237FADDC00FB389E /* AppDelegate.swift in Sources */,
+				1C7BEC6723805D9B00EDB340 /* DetailController.swift in Sources */,
 				1CC8CFA0237FEDCD0005A5F6 /* JournalController.swift in Sources */,
 				1CC8CF9E237FED050005A5F6 /* SceneDelegate.swift in Sources */,
-				1CC8CFA3237FF5D30005A5F6 /* StoryCell.swift in Sources */,
+				1CC8CFA3237FF5D30005A5F6 /* JournalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +582,7 @@
 		};
 		1CD647B4237FADDF00FB389E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,7 +597,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = md.MusicalJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MusicalJournal-Bridging-Header.h";
@@ -523,6 +611,7 @@
 		};
 		1CD647B5237FADDF00FB389E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -537,7 +626,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = md.MusicalJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MusicalJournal-Bridging-Header.h";

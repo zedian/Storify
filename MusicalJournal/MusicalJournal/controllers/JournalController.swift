@@ -8,40 +8,56 @@
 
 import UIKit
 
-class JournalController: UIViewController {
-    
-    @IBOutlet weak var spotifyButton: UIBarButtonItem!
-    
-    @IBOutlet weak var journalTable: UITableView! {
-        didSet  {
-            self.journalTable.delegate = self
-            let nib = UINib(nibName: "StoryCell", bundle: nil)
-            self.journalTable.register(nib, forCellReuseIdentifier: "StoryCell")
-            self.journalTable.dataSource  = self
-            
-        }
-    }
-    
-    override func viewDidLoad() {
-        
-    }
-
-    @IBAction func goToSpotify(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "playSpotify", sender: self)
-    }
+protocol JournalListViewControllerDelegate {
+    func journalListViewController(_ controller: JournalController, didSelectJournal: Journal)
 }
 
-extension JournalController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+class JournalController: UITableViewController {
+    
+    var journals: [Journal] = [
+        Journal(title: "Hello", text: "WHAT"),
+        Journal(title: "What", text: "WHAT"),
+        Journal(title: "The", text: "WHAT"),
+        Journal(title: "Fuck", text: "WHAT")
+    ]
+    
+    override func viewDidLoad() {
+        self.tableView.delegate = self
+        let nib = UINib(nibName: "JournalCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "JournalCell")
+        self.tableView.reloadData()
+        self.tableView.dataSource = self
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return journals.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath)
-        guard let storyCell = cell as? StoryCell else {return cell}
+    override  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath)
+        guard let journalCell = cell as? JournalCell else {return cell}
         
-        return storyCell
+        return journalCell
     }
     
+    override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedJournal  = journals[indexPath.row]
+        
+            
+        guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
+            if let vc = vc as?  DetailController {
+                return  true
+            }
+            return false
+        }) as? DetailController else {return}
+        detail.journalListViewController(self, didSelectJournal: selectedJournal)
+        self.splitViewController?.showDetailViewController(detail, sender: self)
+        
+    }
+    
+    override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+  
     
 }

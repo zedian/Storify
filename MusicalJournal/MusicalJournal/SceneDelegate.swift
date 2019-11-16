@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootViewController = mainstoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        let rootViewController = mainstoryboard.instantiateViewController(withIdentifier: "RootViewController") as! UISplitViewController
         window.rootViewController = rootViewController
         return 
     }
