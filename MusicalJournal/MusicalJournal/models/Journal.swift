@@ -11,9 +11,11 @@ import Foundation
 class Journal {
     var text: String
     var title: String
+    var id: String
     
-    init(title: String,  text: String) {
+    init(title: String,  text: String, id: String = "nil") {
         self.text  = text
         self.title = title
+        self.id = id
     }
 }

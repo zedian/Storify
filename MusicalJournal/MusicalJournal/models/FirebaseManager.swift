@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 
-
 class FirebaseManager {
     
     let db = Firestore.firestore()
