@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eoH-tu-QS6">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yXz-MD-n83">
+    <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -8,83 +8,161 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Spotify Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Detail Controller-->
+        <scene sceneID="9l7-Ld-M7M">
             <objects>
-                <viewController storyboardIdentifier="SpotifyController" id="BYZ-38-t0r" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="MqJ-h5-j20"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="342.02898550724638" y="79.6875"/>
-        </scene>
-        <!--JL-->
-        <scene sceneID="0kA-b9-42v">
-            <objects>
-                <viewController storyboardIdentifier="JournalController" id="9C1-N8-jx2" customClass="JournalController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WNf-yb-9NM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SR6-cN-1q2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="yWM-5t-MmO" customClass="DetailController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BsK-GZ-Org">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DYk-fy-fTc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNi-Zz-hS1">
+                                <rect key="frame" x="0.0" y="945" width="834" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BNi-Zz-hS1" secondAttribute="height" multiplier="5:1" id="g3N-lk-ven"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="dvS-rx-1wO" kind="embed" identifier="playSpotify" id="CRA-eo-M4v"/>
+                                </connections>
+                            </containerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-K4-boa">
+                                <rect key="frame" x="0.0" y="83.5" width="834" height="861.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXJ-Dv-Nsa">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="83.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gXJ-Dv-Nsa" secondAttribute="height" multiplier="10:1" id="d0J-ol-RXc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DYk-fy-fTc" firstAttribute="top" secondItem="cKn-ly-1ty" secondAttribute="top" id="4I2-Ox-IJV"/>
-                            <constraint firstItem="cKn-ly-1ty" firstAttribute="trailing" secondItem="DYk-fy-fTc" secondAttribute="trailing" id="j75-5b-7RZ"/>
-                            <constraint firstItem="DYk-fy-fTc" firstAttribute="leading" secondItem="cKn-ly-1ty" secondAttribute="leading" id="lnJ-1G-mex"/>
-                            <constraint firstItem="cKn-ly-1ty" firstAttribute="bottom" secondItem="DYk-fy-fTc" secondAttribute="bottom" id="yoK-XW-7G1"/>
+                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="top" secondItem="Djj-K4-boa" secondAttribute="bottom" id="0cP-hY-AKl"/>
+                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="6jc-s6-slK"/>
+                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="6rn-ew-tc4"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="gXJ-Dv-Nsa" secondAttribute="bottom" id="DBf-NC-81Y"/>
+                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" id="QwR-b0-5CS"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="top" secondItem="gXJ-Dv-Nsa" secondAttribute="bottom" id="Ucv-en-hoM"/>
+                            <constraint firstItem="gXJ-Dv-Nsa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="in5-hb-zIT"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="mkB-mp-8iB"/>
+                            <constraint firstItem="Djj-K4-boa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="p3N-mV-lMw"/>
+                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="bottom" secondItem="6Ex-1S-Vdi" secondAttribute="bottom" id="s9D-Xm-orF"/>
+                            <constraint firstItem="BNi-Zz-hS1" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="yTM-g8-ffe"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cKn-ly-1ty"/>
+                        <viewLayoutGuide key="safeArea" id="6Ex-1S-Vdi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="JL" id="ab9-fF-8Nj">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ans-m8-Yui">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sWf-Vz-N5a">
-                                <rect key="frame" x="345" y="7" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Spotify"/>
-                                <connections>
-                                    <action selector="goToSpotify:" destination="9C1-N8-jx2" eventType="touchUpInside" id="THd-bH-rol"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="journalTable" destination="DYk-fy-fTc" id="SzZ-gE-Tos"/>
-                        <outlet property="spotifyButton" destination="Ans-m8-Yui" id="vd5-JQ-FlU"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="playSpotify" id="DaO-Fg-cO4"/>
+                        <outlet property="spotifyView" destination="BNi-Zz-hS1" id="jfF-xO-evM"/>
+                        <outlet property="textView" destination="Djj-K4-boa" id="8vL-BN-pEv"/>
+                        <outlet property="titleLabel" destination="gXJ-Dv-Nsa" id="2xz-kg-iOR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a1a-ul-VQc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-613.04347826086962" y="79.6875"/>
+            <point key="canvasLocation" x="-1105" y="-494"/>
+        </scene>
+        <!--Journal-->
+        <scene sceneID="Np9-Mk-52c">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="9fs-Mm-TkU" customClass="JournalController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckb-z1-UXt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q4N-Ve-Zpa">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q4N-Ve-Zpa" id="bTJ-0W-ZTy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9fs-Mm-TkU" id="bvh-YF-Hnp"/>
+                            <outlet property="delegate" destination="9fs-Mm-TkU" id="qaX-s0-jMX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Journal" id="EP5-RE-hjR">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vwQ-2j-CJK">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="FAh-5c-6UN" kind="show" id="ZaB-GG-Cbs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SKg-HR-AXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-348" y="-1149"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="CzI-U8-pmx">
+        <scene sceneID="rem-aI-ehn">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="eoH-tu-QS6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="azU-Gm-OaI">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                <navigationController id="qlC-VU-cQd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VE8-UN-Pm1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9C1-N8-jx2" kind="relationship" relationship="rootViewController" id="fzm-Ow-vDF"/>
+                        <segue destination="9fs-Mm-TkU" kind="relationship" relationship="rootViewController" id="2L1-Mg-rxJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XuB-a5-Gm2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TZ4-Lb-st4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1523.1884057971015" y="79.6875"/>
+            <point key="canvasLocation" x="-1105" y="-1149"/>
+        </scene>
+        <!--Split Controller-->
+        <scene sceneID="kvC-Mo-f6A">
+            <objects>
+                <splitViewController storyboardIdentifier="RootViewController" maximumPrimaryColumnWidth="500" minimumPrimaryColumnWidth="150" preferredPrimaryColumnWidthFraction="0.29999999999999999" presentsWithGesture="NO" id="yXz-MD-n83" customClass="SplitController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="qlC-VU-cQd" kind="relationship" relationship="masterViewController" id="duE-JO-qQJ"/>
+                        <segue destination="yWM-5t-MmO" kind="relationship" relationship="detailViewController" id="yv1-Fl-X0o"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9C-8o-wHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1863" y="-831"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4UP-vt-VwG">
+            <objects>
+                <viewController id="dvS-rx-1wO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Cn-xR-edM">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="167"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOA-3S-5aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1105" y="-31"/>
+        </scene>
+        <!--Spotify Controller-->
+        <scene sceneID="Nda-uR-Zrc">
+            <objects>
+                <viewController id="FAh-5c-6UN" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2If-OM-LsR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SZp-cm-Ixs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1e5-3h-ugG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4s-MO-maz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-471" y="-1808"/>
         </scene>
     </scenes>
 </document>
