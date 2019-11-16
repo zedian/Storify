@@ -111,10 +111,10 @@ def top_k_top_p_filtering(logits, top_k=0, top_p=0.0, filter_value=-float("Inf")
 # In[7]:
 
 
-def predict(text):
+def predict(text, length):
     print("input text: ", text)
     indexed_tokens = tokenizer.encode(text)
-    output = sample_sequence(model, 15, indexed_tokens)
+    output = sample_sequence(model, length, indexed_tokens)
     return tokenizer.decode(
         output[0, 0:].tolist(), clean_up_tokenization_spaces=True, skip_special_tokens=True
     )
@@ -126,14 +126,14 @@ def predict(text):
 @app.route('/',methods=['POST'])
 def getgen():
     text = request.form.get('text')
-    generated = predict(text)
+    to_gen = int(len(text)/3)
+    generated = {'1': predict(text, to_gen), '2': predict(text, to_gen), '3': predict(text, to_gen)}
     return json.dumps(generated)
-
 
 # In[13]:
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=8021, debug = True)
+    app.run(host='localhost',port=8021, debug = True)
     
 
