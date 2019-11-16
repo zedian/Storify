@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eoH-tu-QS6">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Spotify Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SpotifyController" id="BYZ-38-t0r" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MqJ-h5-j20"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342.02898550724638" y="79.6875"/>
+        </scene>
+        <!--JL-->
+        <scene sceneID="0kA-b9-42v">
+            <objects>
+                <viewController storyboardIdentifier="JournalController" id="9C1-N8-jx2" customClass="JournalController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNf-yb-9NM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DYk-fy-fTc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DYk-fy-fTc" firstAttribute="top" secondItem="cKn-ly-1ty" secondAttribute="top" id="4I2-Ox-IJV"/>
+                            <constraint firstItem="cKn-ly-1ty" firstAttribute="trailing" secondItem="DYk-fy-fTc" secondAttribute="trailing" id="j75-5b-7RZ"/>
+                            <constraint firstItem="DYk-fy-fTc" firstAttribute="leading" secondItem="cKn-ly-1ty" secondAttribute="leading" id="lnJ-1G-mex"/>
+                            <constraint firstItem="cKn-ly-1ty" firstAttribute="bottom" secondItem="DYk-fy-fTc" secondAttribute="bottom" id="yoK-XW-7G1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cKn-ly-1ty"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="JL" id="ab9-fF-8Nj">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ans-m8-Yui">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sWf-Vz-N5a">
+                                <rect key="frame" x="345" y="7" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Spotify"/>
+                                <connections>
+                                    <action selector="goToSpotify:" destination="9C1-N8-jx2" eventType="touchUpInside" id="THd-bH-rol"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="journalTable" destination="DYk-fy-fTc" id="SzZ-gE-Tos"/>
+                        <outlet property="spotifyButton" destination="Ans-m8-Yui" id="vd5-JQ-FlU"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="playSpotify" id="DaO-Fg-cO4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a1a-ul-VQc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-613.04347826086962" y="79.6875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CzI-U8-pmx">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="eoH-tu-QS6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="azU-Gm-OaI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9C1-N8-jx2" kind="relationship" relationship="rootViewController" id="fzm-Ow-vDF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XuB-a5-Gm2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1523.1884057971015" y="79.6875"/>
+        </scene>
+    </scenes>
+</document>

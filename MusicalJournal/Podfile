@@ -1,0 +1,3 @@
+target 'MusicalJournal' do
+ pod "SpotifyKit"
+end
