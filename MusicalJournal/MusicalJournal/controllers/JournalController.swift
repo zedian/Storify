@@ -32,9 +32,12 @@ class JournalController: UITableViewController {
 //            print(data)
 //        }
         self.navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
+            [
+                .font: UIFont.systemFont(ofSize: 30, weight: .heavy),
+                .foregroundColor: UIColor.white,
+                
+            ]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
-        
         FirebaseManager.shared.getJournals { (success, journals) in
            if(success) {
                 if journals.count > 0 {

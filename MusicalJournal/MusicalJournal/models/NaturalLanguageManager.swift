@@ -22,7 +22,7 @@ public class NaturalLanguageManager {
     
     func getSuggestions(data: String, completionHandler: @escaping (Bool, [String: String]?) -> ()) {
         
-        let apiUrl = URL(string: "http://15749d1d.ngrok.io")!
+        let apiUrl = URL(string: "https://d3f62cb6.ngrok.io")!
         
         var request = URLRequest(url: apiUrl)
         request.httpMethod = "POST"
@@ -73,7 +73,7 @@ public class NaturalLanguageManager {
     }
     
     func getSpotifyAlbum(data: String, completionHandler: @escaping (Bool, [String: String]?) -> ()) {
-        let apiUrl = URL(string: "http://13905a4f.ngrok.io")!
+        let apiUrl = URL(string: "http://56b82ec3.ngrok.io")!
         
         var request = URLRequest(url: apiUrl)
         request.httpMethod = "POST"

@@ -7,9 +7,19 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 
 class DetailController: UIViewController, JournalListViewControllerDelegate {
+    
+    @IBOutlet weak var spotifyLoading: NVActivityIndicatorView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
+    @IBOutlet weak var connectButton: UIButton! {
+           didSet {
+            
+           }
+       }
+
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -51,12 +61,8 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
     }
     
     @IBOutlet weak var clearView: UIView!
-    @IBOutlet weak var spotifyView: UIView! {
-        didSet {
-            
-        }
-    }
-    
+    @IBOutlet weak var spotifyView: UIView!
+       
     @IBOutlet weak var parentTextView: UIView!
     
     @IBOutlet var cornerShadowsView: [UIView]!
@@ -66,7 +72,8 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
     var indexPath: IndexPath?
     var recommended: Bool = false
     var recommendations: [String] = []
-    
+    var spotifyURI: String?
+    var loading: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +84,8 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
           clearView.isUserInteractionEnabled = true
           clearView.alpha = 0
 //        // Do any additional setup after loading the view.
+        SpotifyManager.shared.appRemote.delegate = self
+        view.sendSubviewToBack(self.blurView)
         
     }
     
@@ -92,10 +101,7 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         self.recommendButton.layer.cornerRadius = self.recommendButton.frame.height / 2
         self.recommendButton.layer.borderWidth = 1
         self.recommendButton.layer.borderColor =  UIColor.lightGray.cgColor
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
+          self.connectButton.layer.cornerRadius = self.connectButton.frame.height / 2
     }
   
     func journalListViewController(_ controller: JournalController, didSelectJournal: Journal, indexPath: IndexPath, first: Bool) {
@@ -107,17 +113,22 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         self.textView.isEditable = true
         self.textField.isEnabled = true
         self.deleteButton.isHidden = false
+        self.recommended = false
+        self.recommendations = []
+        self.recommendButton.isHidden = false
+        self.collectionView.reloadData()
         controller.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
         if(first) {
             textView.textColor = UIColor.lightGray
         }
     }
     
+    
     @objc func clearInput() {
         clearView.alpha = 0
         self.view.endEditing(true)
     }
-    
+
     @IBAction func deletePressed(_ sender: UIButton) {
         guard let indexPath = indexPath else {return}
         mainVC?.journals.remove(at: indexPath.row)
@@ -133,6 +144,10 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         self.textField.text = ""
         self.mainVC?.tableView.reloadData()
         self.deleteButton.isHidden = true
+        self.recommended = false
+        self.recommendations = []
+        self.recommendButton.isHidden = true
+        self.collectionView.reloadData()
     }
     
     @IBAction func recommendationPressed(_ sender: Any) {
@@ -155,9 +170,11 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         } else {
             string = String(texts[texts.count - 1])
         }
-            
+        self.loading = true
+        self.collectionView.reloadData()
        NaturalLanguageManager.shared.getSuggestions(data: string) { (success, recommendations) in
            if(success) {
+               self.loading = false
                guard let recommendations = recommendations else {return}
                self.recommendations = Array(recommendations.values)
                self.recommended = true
@@ -167,6 +184,46 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
                }
            }
        }
+    }
+    
+    @IBAction func pressedSpotify(_ sender: Any) {
+        self.view.bringSubviewToFront(blurView)
+        self.view.bringSubviewToFront(spotifyLoading)
+        spotifyLoading.startAnimating()
+       let texts  =  self.textView.text.split(whereSeparator: { (c) -> Bool in
+                  if (c == "." || c == "!" || c == "\n" || c == "?" ) {
+                      return true
+                  }
+                  return false
+              })
+              let text = texts.last
+              guard let t = text else {return}
+              let lastC: String = String(self.textView.text.last!)
+              var string: String = ""
+              if t == "" {
+                  string = String(texts[texts.count - 2]) + lastC
+              } else {
+                  string = String(texts[texts.count - 1])
+              }
+        
+        NaturalLanguageManager.shared.getSpotifyAlbum(data: string) { (success, data) in
+            if(success) {
+                guard let data = data else {return}
+                guard let uri = data["uri"] else {return}
+                SpotifyManager.shared.spotifyURI = uri
+                DispatchQueue.main.async {
+                    SpotifyManager.shared.appRemote.authorizeAndPlayURI(uri)
+                    self.spotifyLoading.stopAnimating()
+                    self.view.sendSubviewToBack(self.blurView)
+                    self.view.sendSubviewToBack(self.spotifyLoading)
+                }
+                
+            } else {
+                self.spotifyLoading.stopAnimating()
+                self.view.sendSubviewToBack(self.blurView)
+                self.view.sendSubviewToBack(self.spotifyLoading)
+            }
+        }
     }
 }
 
@@ -257,10 +314,25 @@ extension DetailController: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendationCell", for: indexPath)
         guard let rCell = cell as? RecommendationCell else {return cell}
     
-        
+        rCell.textLabel.isHidden = false
         if !recommended {
-            rCell.textLabel.text = "Search for a recommendation"
+            if loading {
+                rCell.activityIndicator.type = .ballPulseSync
+                rCell.textLabel.isHidden = true
+                rCell.activityIndicator.startAnimating()
+            } else {
+                
+                rCell.textLabel.text = "Search for a recommendation"
+            }
+            
         } else {
+            if loading {
+                rCell.activityIndicator.type = .ballPulse
+                rCell.activityIndicator.startAnimating()
+                rCell.textLabel.isHidden = true
+            } else {
+                rCell.activityIndicator.stopAnimating()
+            }
             rCell.textLabel.text = recommendations[indexPath.item]
         }
         
@@ -347,7 +419,7 @@ extension DetailController: UICollectionViewDelegate, UICollectionViewDataSource
 }
 
  extension UITextView {
-
+    
     func centerVertically() {
         let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
         let size = sizeThatFits(fittingSize)
@@ -379,5 +451,38 @@ extension String
             return self.replacingCharacters(in: range, with: replacementString)
         }
         return self
+    }
+}
+
+      
+extension DetailController: SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+    func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
+      SpotifyManager.shared.appRemote.playerAPI?.delegate = self
+      SpotifyManager.shared.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
+        if let error = error {
+          debugPrint(error.localizedDescription)
+        }
+      })
+        print("Playing")
+        print(SpotifyManager.shared.spotifyURI)
+        SpotifyManager.shared.appRemote.playerAPI?.play(SpotifyManager.shared.spotifyURI ?? "", callback: .some({ (success, error) in
+            
+           if let error = error {
+               print(error)
+           } else {
+               print("Here")
+           }
+       }))
+        
+    }
+    func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
+      SpotifyManager.shared.lastPlayerState = nil
+    }
+    func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
+      SpotifyManager.shared.lastPlayerState = nil
+    }
+    
+    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+        
     }
 }
