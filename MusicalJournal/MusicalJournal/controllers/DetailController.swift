@@ -51,7 +51,12 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
     }
     
     @IBOutlet weak var clearView: UIView!
-    @IBOutlet weak var spotifyView: UIView!
+    @IBOutlet weak var spotifyView: UIView! {
+        didSet {
+            
+        }
+    }
+    
     @IBOutlet weak var parentTextView: UIView!
     
     @IBOutlet var cornerShadowsView: [UIView]!

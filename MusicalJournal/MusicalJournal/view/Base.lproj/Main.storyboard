@@ -227,7 +227,7 @@
         <scene sceneID="4UP-vt-VwG">
             <objects>
                 <viewController id="dvS-rx-1wO" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Cn-xR-edM">
+                    <view key="view" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5Cn-xR-edM">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -239,20 +239,61 @@
                                 </constraints>
                                 <state key="normal" title="CONNECT"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXb-Ai-ZtF">
-                                <rect key="frame" x="20" y="20" width="75" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXb-Ai-ZtF">
+                                <rect key="frame" x="20" y="35" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8Ij-x5-5h6"/>
+                                    <constraint firstAttribute="width" secondItem="fXb-Ai-ZtF" secondAttribute="height" multiplier="1:1" id="hZs-Xz-pi4"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT THE FUCK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNx-vT-EZ0">
+                                <rect key="frame" x="85" y="20" width="459" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-9P-3SK">
+                                <rect key="frame" x="564" y="20" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7eu-9P-3SK" secondAttribute="height" multiplier="1:1" id="QjA-5G-NKt"/>
+                                    <constraint firstAttribute="width" constant="80" id="tHd-fi-3Jg"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwe-ql-K0G">
+                                <rect key="frame" x="664" y="35" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="mxT-Ya-jrK"/>
+                                    <constraint firstAttribute="height" constant="50" id="xQ7-w3-mu8"/>
+                                </constraints>
+                                <state key="normal" title="DISCONNECT"/>
+                                <connections>
+                                    <action selector="disconnectPressed:" destination="dvS-rx-1wO" eventType="touchUpInside" id="5aF-yf-jtn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10196178409999999" green="0.10195901239999999" blue="0.1019608751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="7eu-9P-3SK" firstAttribute="centerY" secondItem="5Cn-xR-edM" secondAttribute="centerY" id="1X1-ps-FfO"/>
+                            <constraint firstItem="nwe-ql-K0G" firstAttribute="leading" secondItem="7eu-9P-3SK" secondAttribute="trailing" constant="20" id="554-tg-mLs"/>
+                            <constraint firstItem="uNx-vT-EZ0" firstAttribute="leading" secondItem="fXb-Ai-ZtF" secondAttribute="trailing" constant="15" id="BT8-fE-vh0"/>
+                            <constraint firstItem="507-rK-ddT" firstAttribute="trailing" secondItem="nwe-ql-K0G" secondAttribute="trailing" constant="20" id="CJf-ks-SlO"/>
+                            <constraint firstItem="fXb-Ai-ZtF" firstAttribute="leading" secondItem="507-rK-ddT" secondAttribute="leading" constant="20" id="SC7-iK-DkK"/>
+                            <constraint firstItem="7eu-9P-3SK" firstAttribute="leading" secondItem="uNx-vT-EZ0" secondAttribute="trailing" constant="20" id="Vdu-LN-gIx"/>
+                            <constraint firstItem="nwe-ql-K0G" firstAttribute="centerY" secondItem="5Cn-xR-edM" secondAttribute="centerY" id="Z8h-PB-JMf"/>
                             <constraint firstItem="t6O-dM-o47" firstAttribute="centerX" secondItem="5Cn-xR-edM" secondAttribute="centerX" id="aEn-TL-5GP"/>
+                            <constraint firstItem="uNx-vT-EZ0" firstAttribute="top" secondItem="507-rK-ddT" secondAttribute="top" constant="20" id="gqz-Ce-TC0"/>
+                            <constraint firstItem="fXb-Ai-ZtF" firstAttribute="centerY" secondItem="5Cn-xR-edM" secondAttribute="centerY" id="mlP-yo-BLZ"/>
+                            <constraint firstItem="507-rK-ddT" firstAttribute="bottom" secondItem="uNx-vT-EZ0" secondAttribute="bottom" constant="20" id="n6d-9Q-Yun"/>
                             <constraint firstItem="t6O-dM-o47" firstAttribute="centerY" secondItem="5Cn-xR-edM" secondAttribute="centerY" id="nMR-gr-5TZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="507-rK-ddT"/>
                     </view>
                     <connections>
                         <outlet property="connectButton" destination="t6O-dM-o47" id="ZDk-wr-KFo"/>
+                        <outlet property="disconnectButton" destination="nwe-ql-K0G" id="QPR-5I-Xm9"/>
+                        <outlet property="imageView" destination="fXb-Ai-ZtF" id="R4d-ri-rdv"/>
+                        <outlet property="pauseAndPlayButton" destination="7eu-9P-3SK" id="jfA-vq-tdg"/>
+                        <outlet property="trackLabel" destination="uNx-vT-EZ0" id="ISh-xr-M4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOA-3S-5aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
