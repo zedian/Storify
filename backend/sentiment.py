@@ -32,6 +32,8 @@ def run_sentiment_analysis(text):
     r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
     response_data = r.json()
     intent = response_data['prediction']['topIntent']
+    if intent == 'None':
+        return spotify:album:6N9PS4QXF1D0OWPk0Sxtb4
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
     result = sp.recommendations(seed_genres={intent}) #search query

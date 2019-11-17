@@ -114,7 +114,7 @@ def top_k_top_p_filtering(logits, top_k=0, top_p=0.0, filter_value=-float("Inf")
 def predict(text, length):
     print("input text: ", text)
     indexed_tokens = tokenizer.encode(text)
-    output = sample_sequence(model, length, indexed_tokens)
+    output = sample_sequence(model, 15, indexed_tokens)
     return tokenizer.decode(
         output[0, 0:].tolist(), clean_up_tokenization_spaces=True, skip_special_tokens=True
     )
