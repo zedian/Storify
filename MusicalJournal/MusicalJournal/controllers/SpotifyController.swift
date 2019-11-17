@@ -9,14 +9,14 @@
 import UIKit
 
 class SpotifyController: UIViewController {
-
+    
+    
     // MARK: - Subviews
     @IBOutlet weak var connectButton: UIButton! {
         didSet {
             connectButton.backgroundColor = UIColor(red:(29.0 / 255.0), green:(185.0 / 255.0), blue:(84.0 / 255.0), alpha:1.0)
             connectButton.contentEdgeInsets = UIEdgeInsets(top: 11.75, left: 32.0, bottom: 11.75, right: 32.0)
-            connectButton.translatesAutoresizingMaskIntoConstraints = false
-            let title = NSAttributedString(string: "Connect", attributes: [
+            let title = NSAttributedString(string: "CONNECT", attributes: [
                 .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy),
                 .foregroundColor: UIColor.white,
                 .kern: 2.0
@@ -24,74 +24,43 @@ class SpotifyController: UIViewController {
             connectButton.setAttributedTitle(title, for: .normal)
         }
     }
+
+    @IBOutlet weak var disconnectButton: UIButton! {
+        didSet {
+            disconnectButton.backgroundColor = UIColor(red:(29.0 / 255.0), green:(185.0 / 255.0), blue:(84.0 / 255.0), alpha:1.0)
+                     disconnectButton.contentEdgeInsets = UIEdgeInsets(top: 11.75, left: 32.0, bottom: 11.75, right: 32.0)
+                     let title = NSAttributedString(string: "DISCONNECT", attributes: [
+                         .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy),
+                         .foregroundColor: UIColor.white,
+                         .kern: 2.0
+                     ])
+                     disconnectButton.setAttributedTitle(title, for: .normal)
+        }
+    }
+    @IBOutlet weak var pauseAndPlayButton: UIButton! {
+        didSet {
+            pauseAndPlayButton.addTarget(self, action: #selector(didTapPauseOrPlay), for: .touchUpInside)
+        }
+    }
     
-    fileprivate lazy var connectLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Connect your Spotify account"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
 
-    fileprivate lazy var disconnectButton = ConnectButton(title: "DISCONNECT")
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.contentMode = .scaleAspectFit
+        }
+    }
 
-    fileprivate lazy var pauseAndPlayButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(didTapPauseOrPlay), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    fileprivate lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-
-    fileprivate lazy var trackLabel: UILabel = {
-        let trackLabel = UILabel()
-        trackLabel.translatesAutoresizingMaskIntoConstraints = false
-        trackLabel.textAlignment = .center
-        return trackLabel
-    }()
+    @IBOutlet weak var trackLabel: UILabel! {
+        didSet {
+            trackLabel.textAlignment = .center
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         SpotifyManager.shared.appRemote.delegate = self
 
-        view.addSubview(connectLabel)
-        view.addSubview(disconnectButton)
-        view.addSubview(imageView)
-        view.addSubview(trackLabel)
-        view.addSubview(pauseAndPlayButton)
-
-        let constant: CGFloat = 16.0
-
-        disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        disconnectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-
-        connectLabel.centerXAnchor.constraint(equalTo: connectButton.centerXAnchor).isActive = true
-        connectLabel.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -constant).isActive = true
-
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: trackLabel.topAnchor, constant: -constant).isActive = true
-
-        trackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        trackLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: constant).isActive = true
-        trackLabel.bottomAnchor.constraint(equalTo: connectLabel.topAnchor, constant: -constant).isActive = true
-
-        pauseAndPlayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pauseAndPlayButton.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: constant).isActive = true
-        pauseAndPlayButton.widthAnchor.constraint(equalToConstant: 50)
-        pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50)
-        pauseAndPlayButton.sizeToFit()
-
-        disconnectButton.sizeToFit()
-
         connectButton.addTarget(self, action: #selector(didTapConnect(_:)), for: .touchUpInside)
-        disconnectButton.addTarget(self, action: #selector(didTapDisconnect(_:)), for: .touchUpInside)
-
         updateViewBasedOnConnected()
     }
     
@@ -105,6 +74,7 @@ class SpotifyController: UIViewController {
         }
         SpotifyManager.shared.lastPlayerState = playerState
         trackLabel.text = playerState.track.name
+        
         if playerState.isPaused {
             pauseAndPlayButton.setImage(UIImage(named: "play"), for: .normal)
         } else {
@@ -113,21 +83,49 @@ class SpotifyController: UIViewController {
     }
 
     func updateViewBasedOnConnected() {
+        
         if (SpotifyManager.shared.appRemote.isConnected) {
-            connectButton.isHidden = true
-            disconnectButton.isHidden = false
-            connectLabel.isHidden = true
-            imageView.isHidden = false
-            trackLabel.isHidden = false
-            pauseAndPlayButton.isHidden = false
-        } else {
-            disconnectButton.isHidden = true
-            connectButton.isHidden = false
-            connectLabel.isHidden = false
-            imageView.isHidden = true
-            trackLabel.isHidden = true
-            pauseAndPlayButton.isHidden = true
+                       guard let detail = parent as? DetailController else {return}
+                       detail.spotifyView.layoutIfNeeded()
+            DispatchQueue.main.async {
+                 UIView.animate(withDuration: 2.0) {
+                       print("Updated")
+                    guard let detail = self.parent as? DetailController else {return}
+                    detail.spotifyView.layoutIfNeeded()
+                         self.disconnectButton.alpha = 0
+                            self.connectButton.alpha = 1
+                            self.imageView.alpha = 0
+                            self.trackLabel.alpha = 0
+                            self.pauseAndPlayButton.alpha = 0
+                           detail.spotifyView.layoutIfNeeded()
+                   }
+            }
+               
+                   } else {
+            DispatchQueue.main.async {
+                guard let detail = self.parent as? DetailController else {return}
+                detail.spotifyView.layoutIfNeeded()
+                  UIView.animate(withDuration: 2.0) {
+                    
+                    
+                      self.disconnectButton.alpha = 0
+                      self.connectButton.alpha = 1
+                      self.imageView.alpha = 0
+                      self.trackLabel.alpha = 0
+                      self.pauseAndPlayButton.alpha = 0
+                   self.view.bringSubviewToFront(self.disconnectButton)
+                   self.view.bringSubviewToFront(self.connectButton)
+                      self.view.bringSubviewToFront(self.imageView)
+                      self.view.bringSubviewToFront(self.trackLabel)
+                      self.view.bringSubviewToFront(self.pauseAndPlayButton)
+                      detail.spotifyView.layoutIfNeeded()
+                        
+                  }
+            }
+              
+                
         }
+       
     }
 
     func fetchArtwork(for track:SPTAppRemoteTrack) {
@@ -150,6 +148,15 @@ class SpotifyController: UIViewController {
         })
     }
 
+    @IBAction func disconnectPressed(_ sender: Any) {
+        print("HERE")
+        if (SpotifyManager.shared.appRemote.isConnected) {
+            print("Disconnected")
+            SpotifyManager.shared.appRemote.disconnect()
+        } else {
+            print("Why")
+        }
+    }
     // MARK: - Actions
 
     @objc func didTapPauseOrPlay(_ button: UIButton) {
@@ -157,12 +164,6 @@ class SpotifyController: UIViewController {
             SpotifyManager.shared.appRemote.playerAPI?.resume(nil)
         } else {
             SpotifyManager.shared.appRemote.playerAPI?.pause(nil)
-        }
-    }
-
-    @objc func didTapDisconnect(_ button: UIButton) {
-        if (SpotifyManager.shared.appRemote.isConnected) {
-            SpotifyManager.shared.appRemote.disconnect()
         }
     }
 
@@ -180,7 +181,6 @@ class SpotifyController: UIViewController {
 extension SpotifyController: SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate  {
     
      func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
-        
         updateViewBasedOnConnected()
         SpotifyManager.shared.appRemote.playerAPI?.delegate = self
         SpotifyManager.shared.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
@@ -188,18 +188,12 @@ extension SpotifyController: SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelega
             debugPrint(error.localizedDescription)
           }
         })
-        SpotifyManager.shared.appRemote.playerAPI?.play("spotify:track:4uLU6hMCjMI75M1A2tKUQC", callback: .some({ (success, error) in
-            if let error = error {
-                print(error)
-            } else {
-                self.fetchPlayerState() 
-            }
-        }))
         fetchPlayerState()
       }
       func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
         updateViewBasedOnConnected()
         SpotifyManager.shared.lastPlayerState = nil
+        
       }
       func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
         updateViewBasedOnConnected()
