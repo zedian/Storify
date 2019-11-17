@@ -25,6 +25,7 @@ class SpotifyManager  {
       return configuration
   }()
 
+    var spotifyURI: String?
    var accessToken: String = "key-access-token"
 
     var lastPlayerState: SPTAppRemotePlayerState?

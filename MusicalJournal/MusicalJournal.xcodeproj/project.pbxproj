@@ -17,7 +17,6 @@
 		1CC8CFA3237FF5D30005A5F6 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA1237FF5D30005A5F6 /* JournalCell.swift */; };
 		1CC8CFA4237FF5D30005A5F6 /* JournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8CFA2237FF5D30005A5F6 /* JournalCell.xib */; };
 		1CD6478D237FADDC00FB389E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD6478C237FADDC00FB389E /* AppDelegate.swift */; };
-		1CD64791237FADDC00FB389E /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD64790237FADDC00FB389E /* SpotifyController.swift */; };
 		1CD64794237FADDC00FB389E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD64792237FADDC00FB389E /* Main.storyboard */; };
 		1CD64796237FADDF00FB389E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD64795237FADDF00FB389E /* Assets.xcassets */; };
 		1CD64799237FADDF00FB389E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD64797237FADDF00FB389E /* LaunchScreen.storyboard */; };
@@ -28,6 +27,7 @@
 		1CF48B4C2380A9BD00C10E01 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */; };
 		1CF48B4F23811A1B00C10E01 /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B4D23811A1B00C10E01 /* RecommendationCell.swift */; };
 		1CF48B5023811A1B00C10E01 /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF48B4E23811A1B00C10E01 /* RecommendationCell.xib */; };
+		1CF48B5323816DE300C10E01 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B5223816DE300C10E01 /* SpotifyController.swift */; };
 		3AB4476F20A00386492BF41C /* Pods_MusicalJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E459011BE5C0BC666B1D0207 /* Pods_MusicalJournal.framework */; };
 		C0DEB1712380DA5C0099456F /* NaturalLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,6 @@
 		1CC8CFA2237FF5D30005A5F6 /* JournalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JournalCell.xib; sourceTree = "<group>"; };
 		1CD64789237FADDC00FB389E /* MusicalJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicalJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD6478C237FADDC00FB389E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1CD64790237FADDC00FB389E /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		1CD64793237FADDC00FB389E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD64795237FADDF00FB389E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD64798237FADDF00FB389E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1CF48B4D23811A1B00C10E01 /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		1CF48B4E23811A1B00C10E01 /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
+		1CF48B5223816DE300C10E01 /* SpotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.release.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.release.xcconfig"; sourceTree = "<group>"; };
 		C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageManager.swift; sourceTree = "<group>"; };
 		D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.debug.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 		1CEBFE81237FF66E00EABBEF /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1CD64790237FADDC00FB389E /* SpotifyController.swift */,
+				1CF48B5223816DE300C10E01 /* SpotifyController.swift */,
 				1CC8CF9F237FEDCD0005A5F6 /* JournalController.swift */,
 				1C7BEC6623805D9B00EDB340 /* DetailController.swift */,
 				1C7BEC682380640F00EDB340 /* SplitController.swift */,
@@ -425,7 +425,6 @@
 			files = (
 				1CA20A80237FF73000B8335F /* SpotifyManager.swift in Sources */,
 				1CF48B4F23811A1B00C10E01 /* RecommendationCell.swift in Sources */,
-				1CD64791237FADDC00FB389E /* SpotifyController.swift in Sources */,
 				1C7BEC692380640F00EDB340 /* SplitController.swift in Sources */,
 				1CA20A81237FF77E00B8335F /* ConnectButton.swift in Sources */,
 				1CF48B4C2380A9BD00C10E01 /* FirebaseManager.swift in Sources */,
@@ -435,6 +434,7 @@
 				1CC8CFA0237FEDCD0005A5F6 /* JournalController.swift in Sources */,
 				C0DEB1712380DA5C0099456F /* NaturalLanguageManager.swift in Sources */,
 				1CC8CF9E237FED050005A5F6 /* SceneDelegate.swift in Sources */,
+				1CF48B5323816DE300C10E01 /* SpotifyController.swift in Sources */,
 				1CC8CFA3237FF5D30005A5F6 /* JournalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

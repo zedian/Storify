@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class RecommendationCell: UICollectionViewCell {
 
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     @IBOutlet weak var textLabel: UILabel!
     
     override func awakeFromNib() {

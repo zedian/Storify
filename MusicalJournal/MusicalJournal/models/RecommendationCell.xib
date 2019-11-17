@@ -26,12 +26,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBo-PP-H9m" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="49" y="59" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="A19-dj-9g3"/>
+                                    <constraint firstAttribute="height" constant="60" id="cSN-T1-rb6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.12946858999999999" green="0.1293331683" blue="0.13333398099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="dFL-Ks-MGt" firstAttribute="leading" secondItem="JJy-Df-P0g" secondAttribute="leading" constant="10" id="2MY-cj-pH0"/>
                             <constraint firstAttribute="bottom" secondItem="dFL-Ks-MGt" secondAttribute="bottom" constant="10" id="GjM-Np-9v8"/>
                             <constraint firstAttribute="trailing" secondItem="dFL-Ks-MGt" secondAttribute="trailing" constant="10" id="YbS-Dc-68t"/>
+                            <constraint firstItem="GBo-PP-H9m" firstAttribute="centerY" secondItem="JJy-Df-P0g" secondAttribute="centerY" id="Zjn-Xw-MgX"/>
+                            <constraint firstItem="GBo-PP-H9m" firstAttribute="centerX" secondItem="JJy-Df-P0g" secondAttribute="centerX" id="g6G-1v-6bd"/>
                             <constraint firstItem="dFL-Ks-MGt" firstAttribute="top" secondItem="JJy-Df-P0g" secondAttribute="top" constant="10" id="iWj-rF-nTh"/>
                         </constraints>
                     </view>
@@ -47,6 +63,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="158" height="178"/>
             <connections>
+                <outlet property="activityIndicator" destination="GBo-PP-H9m" id="6zU-kv-vGD"/>
                 <outlet property="textLabel" destination="dFL-Ks-MGt" id="duN-02-kYZ"/>
             </connections>
             <point key="canvasLocation" x="215.94202898550725" y="163.39285714285714"/>
