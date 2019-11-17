@@ -40,7 +40,10 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         self.view.bringSubviewToFront(clearView)
           clearView.isUserInteractionEnabled = true
           clearView.alpha = 0
-        // Do any additional setup after loading the view.
+//        // Do any additional setup after loading the view.
+//        FirebaseManager.shared.listen(id: <#T##String#>) { (<#Bool#>, <#Journal?#>) in
+//            <#code#>
+//        }
     }
    
   

@@ -25,7 +25,9 @@ class JournalController: UITableViewController {
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor(red: 26/255.0, green: 26/255.0, blue: 26/255.0, alpha: 1)
         self.tableView.separatorStyle = .none
-        
+        FirebaseManager.shared.listenToAll { (success, status, journal) in
+            print(status)
+        }    // Remove this text
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)

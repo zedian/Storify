@@ -87,6 +87,35 @@ class FirebaseManager {
         }
     }
     
+    func listenToAll(completionHandler: @escaping (Bool, String?, Journal?) -> ()) {
+        db.collection("Journals").addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                completionHandler(false, nil, nil)
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                let journal = Journal(
+                    title: diff.document.data()["title"] as! String,
+                    text: diff.document.data()["text"] as! String,
+                    id: diff.document.data()["id"] as! String)
+                
+                if (diff.type == .added) {
+                    print("New Journal: \(diff.document.data())")
+                    completionHandler(true,"added",journal)
+                }
+                if (diff.type == .modified) {
+                    print("Modified Journal: \(diff.document.data())")
+                    completionHandler(true,"modified",journal)
+                }
+                if (diff.type == .removed) {
+                    print("Removed Journal: \(diff.document.data())")
+                    completionHandler(true,"removed",journal)
+                }
+            }
+        }
+    }
+    
     func delete(id: String, completionHandler: @escaping (Bool, String) -> ()) {
         
         db.collection("Journals").document(id).delete() { err in
