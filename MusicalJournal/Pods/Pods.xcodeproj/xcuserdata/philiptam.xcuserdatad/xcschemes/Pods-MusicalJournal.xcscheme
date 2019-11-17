@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1110"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5CB6EA1C488C384F485F22B0217A5CA2"
-               BuildableName = "libPods-MusicalJournal.a"
+               BuildableName = "Pods_MusicalJournal.framework"
                BlueprintName = "Pods-MusicalJournal"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

@@ -14,7 +14,7 @@ public class NaturalLanguageManager {
     private init() {}
     
     let session = URLSession.shared
-    let apiUrl = URL(string: "http://fa06a73c.ngrok.io")!
+    let apiUrl = URL(string: "http://15749d1d.ngrok.io")!
     
     func getSuggestions(data: String, completionHandler: @escaping (Bool, [String: String]?) -> ()) {
         var request = URLRequest(url: apiUrl)
@@ -22,11 +22,11 @@ public class NaturalLanguageManager {
         
         let params = ["text":data]
         let jsonString = params.reduce("") { "\($0)\($1.0)=\($1.1)&" }
+        print(jsonString)
         let jsonData = jsonString.data(using: .utf8, allowLossyConversion: false)!
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type")
         request.httpBody  = jsonData
             
-        
         let task = session.uploadTask(with: request, from: jsonData) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
                 print(httpResponse.statusCode)

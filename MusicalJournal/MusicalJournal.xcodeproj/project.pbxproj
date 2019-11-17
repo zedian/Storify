@@ -26,7 +26,9 @@
 		1CD647BE237FAEAA00FB389E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD647BD237FAEAA00FB389E /* SpotifyiOS.framework */; };
 		1CF48B4623807BFF00C10E01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */; };
 		1CF48B4C2380A9BD00C10E01 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */; };
-		38B13938336990FD6E215849 /* libPods-MusicalJournal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */; };
+		1CF48B4F23811A1B00C10E01 /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B4D23811A1B00C10E01 /* RecommendationCell.swift */; };
+		1CF48B5023811A1B00C10E01 /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF48B4E23811A1B00C10E01 /* RecommendationCell.xib */; };
+		3AB4476F20A00386492BF41C /* Pods_MusicalJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E459011BE5C0BC666B1D0207 /* Pods_MusicalJournal.framework */; };
 		C0DEB1712380DA5C0099456F /* NaturalLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +76,12 @@
 		1CEBFE80237FF65F00EABBEF /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
 		1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		1CF48B4D23811A1B00C10E01 /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
+		1CF48B4E23811A1B00C10E01 /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
 		9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.release.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.release.xcconfig"; sourceTree = "<group>"; };
-		9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicalJournal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageManager.swift; sourceTree = "<group>"; };
 		D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.debug.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.debug.xcconfig"; sourceTree = "<group>"; };
+		E459011BE5C0BC666B1D0207 /* Pods_MusicalJournal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicalJournal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD647BE237FAEAA00FB389E /* SpotifyiOS.framework in Frameworks */,
-				38B13938336990FD6E215849 /* libPods-MusicalJournal.a in Frameworks */,
+				3AB4476F20A00386492BF41C /* Pods_MusicalJournal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +123,7 @@
 		1CC8CFA6237FF5DD0005A5F6 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				1CF48B5123811A1F00C10E01 /* RecommendationCell */,
 				1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */,
 				1CEBFE80237FF65F00EABBEF /* ConnectButton.swift */,
 				1CC8CFA7237FF5E20005A5F6 /* JournalCell */,
@@ -214,10 +219,19 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
+		1CF48B5123811A1F00C10E01 /* RecommendationCell */ = {
+			isa = PBXGroup;
+			children = (
+				1CF48B4D23811A1B00C10E01 /* RecommendationCell.swift */,
+				1CF48B4E23811A1B00C10E01 /* RecommendationCell.xib */,
+			);
+			name = RecommendationCell;
+			sourceTree = "<group>";
+		};
 		2D8CEA67808C39F56FB7AAE9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */,
+				E459011BE5C0BC666B1D0207 /* Pods_MusicalJournal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,7 +256,7 @@
 				1CD64785237FADDC00FB389E /* Sources */,
 				1CD64786237FADDC00FB389E /* Frameworks */,
 				1CD64787237FADDC00FB389E /* Resources */,
-				1E74120788B8D574B5F201B2 /* [CP] Copy Pods Resources */,
+				3C002A4B95D128A0D610C40F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,6 +353,7 @@
 			files = (
 				1CD64799237FADDF00FB389E /* LaunchScreen.storyboard in Resources */,
 				1CD64796237FADDF00FB389E /* Assets.xcassets in Resources */,
+				1CF48B5023811A1B00C10E01 /* RecommendationCell.xib in Resources */,
 				1CF48B4623807BFF00C10E01 /* GoogleService-Info.plist in Resources */,
 				1CD64794237FADDC00FB389E /* Main.storyboard in Resources */,
 				1CC8CFA4237FF5D30005A5F6 /* JournalCell.xib in Resources */,
@@ -362,23 +377,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E74120788B8D574B5F201B2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		39BA6F5FC72057953B111C06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +399,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3C002A4B95D128A0D610C40F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -409,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CA20A80237FF73000B8335F /* SpotifyManager.swift in Sources */,
+				1CF48B4F23811A1B00C10E01 /* RecommendationCell.swift in Sources */,
 				1CD64791237FADDC00FB389E /* SpotifyController.swift in Sources */,
 				1C7BEC692380640F00EDB340 /* SplitController.swift in Sources */,
 				1CA20A81237FF77E00B8335F /* ConnectButton.swift in Sources */,

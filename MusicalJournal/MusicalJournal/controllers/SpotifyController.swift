@@ -16,7 +16,7 @@ class SpotifyController: UIViewController {
             connectButton.backgroundColor = UIColor(red:(29.0 / 255.0), green:(185.0 / 255.0), blue:(84.0 / 255.0), alpha:1.0)
             connectButton.contentEdgeInsets = UIEdgeInsets(top: 11.75, left: 32.0, bottom: 11.75, right: 32.0)
             connectButton.translatesAutoresizingMaskIntoConstraints = false
-            let title = NSAttributedString(string: "Connect", attributes: [
+            let title = NSAttributedString(string: "CONNECT", attributes: [
                 .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy),
                 .foregroundColor: UIColor.white,
                 .kern: 2.0
@@ -69,9 +69,6 @@ class SpotifyController: UIViewController {
 
         disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         disconnectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-
-        connectLabel.centerXAnchor.constraint(equalTo: connectButton.centerXAnchor).isActive = true
-        connectLabel.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -constant).isActive = true
 
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
