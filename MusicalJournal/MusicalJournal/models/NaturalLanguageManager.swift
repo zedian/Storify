@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct ResponseModel : Codable {
+    var id : String
+    var text : String
+}
+
 public class NaturalLanguageManager {
     
     public static let shared = NaturalLanguageManager()
@@ -34,6 +39,16 @@ public class NaturalLanguageManager {
             
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print(dataString)
+                do {
+                    let result = try JSONDecoder().decode([ResponseModel].self, from: data)
+                    for item in result {
+                        print(item.id, item.text)
+                    }
+                } catch {
+                    print("Error : \(error.localizedDescription)")
+                }
+                
+                
             }
             
             if error != nil {
