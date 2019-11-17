@@ -25,9 +25,12 @@ class JournalController: UITableViewController {
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor(red: 26/255.0, green: 26/255.0, blue: 26/255.0, alpha: 1)
         self.tableView.separatorStyle = .none
-        FirebaseManager.shared.listenToAll { (success, status, journal) in
-            print(status)
-        }    // Remove this text
+//        NaturalLanguageManager.shared.getSpotifyAlbum(data: "I'm feeling happy") { (success, data) in
+//            SpotifyManager.shared.configuration.playURI = data!["uri"]
+//        }   // Remove this text
+//        NaturalLanguageManager.shared.getSuggestions(data: "new thing") { (success, data) in
+//            print(data)
+//        }
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
@@ -53,6 +56,18 @@ class JournalController: UITableViewController {
                return false
         }) as? DetailController else {return}
         self.detail = detail
+        
+        FirebaseManager.shared.listenToAll { (sucess, status, journals) in
+            self.journals = journals!
+            let index = self.journals.firstIndex { (journal) -> Bool in
+                return journal.id == self.detail?.journal?.id
+            }
+            detail.journal = self.journals[index!]
+            detail.textView.text = detail.journal?.text
+            detail.textField.text = detail.journal?.title
+            
+            
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

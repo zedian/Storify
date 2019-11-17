@@ -82,12 +82,12 @@ class FirebaseManager {
             completionHandler(false, nil)
             return
           }
-          print("Current data: \(data)")
+          //print("Current data: \(data)")
             completionHandler(true, Journal.init(title: data["title"] as! String, text: data["text"] as! String, id: data["id"] as! String))
         }
     }
     
-    func listenToAll(completionHandler: @escaping (Bool, String?, Journal?) -> ()) {
+    func listenToAll(completionHandler: @escaping (Bool, String?, [Journal]?) -> ()) {
         db.collection("Journals").addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
@@ -100,17 +100,27 @@ class FirebaseManager {
                     text: diff.document.data()["text"] as! String,
                     id: diff.document.data()["id"] as! String)
                 
+                
                 if (diff.type == .added) {
-                    print("New Journal: \(diff.document.data())")
-                    completionHandler(true,"added",journal)
+                    //print("New Journal: \(diff.document.data())")
+                    
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"added", data)
+                    }
                 }
                 if (diff.type == .modified) {
-                    print("Modified Journal: \(diff.document.data())")
-                    completionHandler(true,"modified",journal)
+                    //print("Modified Journal: \(diff.document.data())")
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"modified",data)
+                    }
+                    
                 }
                 if (diff.type == .removed) {
-                    print("Removed Journal: \(diff.document.data())")
-                    completionHandler(true,"removed",journal)
+                    //print("Removed Journal: \(diff.document.data())")
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"removed",data)
+                    }
+                    
                 }
             }
         }

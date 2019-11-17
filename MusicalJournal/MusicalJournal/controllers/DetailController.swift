@@ -32,6 +32,7 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
     var journal: Journal?
     var indexPath: IndexPath?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,9 +42,7 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
           clearView.isUserInteractionEnabled = true
           clearView.alpha = 0
 //        // Do any additional setup after loading the view.
-//        FirebaseManager.shared.listen(id: <#T##String#>) { (<#Bool#>, <#Journal?#>) in
-//            <#code#>
-//        }
+        
     }
    
   
@@ -103,6 +102,7 @@ extension DetailController: UITextViewDelegate {
         journal.text = self.textView.text
         guard let indexPath = indexPath else {return}
         mainVC?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+        
         FirebaseManager.shared.update(journal: journal, field: "text") { (success, error) in
             if(success) {
                 
@@ -110,6 +110,7 @@ extension DetailController: UITextViewDelegate {
                 
             }
         }
+        print("done")
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -120,6 +121,7 @@ extension DetailController: UITextViewDelegate {
             textView.text = "Write a story!"
             textView.textColor = UIColor.lightGray
         }
+        
     }
 }
 
@@ -133,8 +135,8 @@ extension DetailController: UITextFieldDelegate {
                 journal.title = text
             } else {
                 journal.title = "New Story"
-                
             }
+            
             FirebaseManager.shared.update(journal: journal, field: "title") { (success, error) in
                if(success) {
                    
