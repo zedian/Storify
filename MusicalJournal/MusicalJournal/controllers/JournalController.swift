@@ -30,7 +30,6 @@ class JournalController: UITableViewController {
             [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
         
-        
         FirebaseManager.shared.getJournals { (success, journals) in
            if(success) {
                 if journals.count > 0 {
@@ -44,6 +43,7 @@ class JournalController: UITableViewController {
                 
            }
        }
+
         guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
                if let vc = vc as?  DetailController {
                    return  true

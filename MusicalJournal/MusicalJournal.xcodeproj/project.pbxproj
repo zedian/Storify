@@ -27,6 +27,7 @@
 		1CF48B4623807BFF00C10E01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF48B4523807BFF00C10E01 /* GoogleService-Info.plist */; };
 		1CF48B4C2380A9BD00C10E01 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */; };
 		38B13938336990FD6E215849 /* libPods-MusicalJournal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */; };
+		C0DEB1712380DA5C0099456F /* NaturalLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		1CF48B4B2380A9BD00C10E01 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9832611D6B5CA13504D76AC8 /* Pods-MusicalJournal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.release.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.release.xcconfig"; sourceTree = "<group>"; };
 		9CE776D5F3C3DE42CBBF85BB /* libPods-MusicalJournal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicalJournal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageManager.swift; sourceTree = "<group>"; };
 		D9139754E793C99ECDEC9802 /* Pods-MusicalJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicalJournal.debug.xcconfig"; path = "Target Support Files/Pods-MusicalJournal/Pods-MusicalJournal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				1CC8CFA7237FF5E20005A5F6 /* JournalCell */,
 				1CA20A7F237FF73000B8335F /* SpotifyManager.swift */,
 				1C7BEC6423805CEA00EDB340 /* Journal.swift */,
+				C0DEB1702380DA5C0099456F /* NaturalLanguageManager.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				1CD6478D237FADDC00FB389E /* AppDelegate.swift in Sources */,
 				1C7BEC6723805D9B00EDB340 /* DetailController.swift in Sources */,
 				1CC8CFA0237FEDCD0005A5F6 /* JournalController.swift in Sources */,
+				C0DEB1712380DA5C0099456F /* NaturalLanguageManager.swift in Sources */,
 				1CC8CF9E237FED050005A5F6 /* SceneDelegate.swift in Sources */,
 				1CC8CFA3237FF5D30005A5F6 /* JournalCell.swift in Sources */,
 			);

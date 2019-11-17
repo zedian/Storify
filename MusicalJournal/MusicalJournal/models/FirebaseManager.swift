@@ -17,7 +17,7 @@ class FirebaseManager {
     static let shared = FirebaseManager()
     private init(){}
     
-    func add(journal: Journal) -> DocumentReference? {
+    func add(journal: Journal) {
         
         var ref: DocumentReference? = nil
         
@@ -46,8 +46,6 @@ class FirebaseManager {
             }
             
         }
-        
-        return ref
     }
     
     func getJournals(completionhandler: @escaping (Bool, [Journal]) -> ()) {
@@ -70,6 +68,23 @@ class FirebaseManager {
         }
 
         
+    }
+    
+    func listen(id: String, completionHandler: @escaping (Bool, Journal?) -> ()) {
+        db.collection("Journals").document(id).addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            completionHandler(false, nil)
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            completionHandler(false, nil)
+            return
+          }
+          print("Current data: \(data)")
+            completionHandler(true, Journal.init(title: data["title"] as! String, text: data["text"] as! String, id: data["id"] as! String))
+        }
     }
     
     func delete(id: String, completionHandler: @escaping (Bool, String) -> ()) {
