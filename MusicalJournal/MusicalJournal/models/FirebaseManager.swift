@@ -101,10 +101,16 @@ class FirebaseManager {
     
     func update(journal: Journal, field: String, completionHandler: @escaping (Bool, String) -> ()) {
         let id = journal.id
-        let data = journal.text
+        var data: String = ""
+        if field == "text" {
+            data = journal.text
+        } else if field == "title" {
+            data = journal.title
+        }
+        
         
         let doc = self.db.collection("Journals").document(id)
-
+        
         doc.updateData([
             field : data
         ]) { err in
