@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        setStatusBarBackgroundColor(color: UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1))
+        //setStatusBarBackgroundColor(color: UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1))
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -54,11 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func setStatusBarBackgroundColor(color: UIColor) {
-
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-
-        statusBar.backgroundColor = color
-    }
+//    func setStatusBarBackgroundColor(color: UIColor) {
+//
+//        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+//
+//        statusBar.backgroundColor = color
+//    }
 
 }

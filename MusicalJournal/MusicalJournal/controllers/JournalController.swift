@@ -29,6 +29,11 @@ class JournalController: UITableViewController {
             [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
         
+        NaturalLanguageManager.shared.getSuggestions(data: "new thing")
+        FirebaseManager.shared.listen(id: "TthwqSsImuEIekylxBoM", completionHandler: { (success, journal) in
+            print(journal)
+        })
+        
         journals.insert((Journal(title: "New Story", text: "Write a story!")), at: 0)
         guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
                if let vc = vc as?  DetailController {
