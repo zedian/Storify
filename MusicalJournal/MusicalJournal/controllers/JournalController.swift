@@ -15,6 +15,7 @@ protocol JournalListViewControllerDelegate {
 class JournalController: UITableViewController {
     
     var journals: [Journal] = []
+    var detail: DetailController?
     
     override func viewDidLoad() {
         self.tableView.delegate = self
@@ -29,19 +30,27 @@ class JournalController: UITableViewController {
             [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 21)!]
         navigationController?.navigationBar.barTintColor = UIColor(red: 14/255.0, green: 14/255.0, blue: 14/255.0, alpha: 1)
         
-        NaturalLanguageManager.shared.getSuggestions(data: "new thing")
-        FirebaseManager.shared.listen(id: "TthwqSsImuEIekylxBoM", completionHandler: { (success, journal) in
-            print(journal)
-        })
-        
-        journals.insert((Journal(title: "New Story", text: "Write a story!")), at: 0)
+        FirebaseManager.shared.getJournals { (success, journals) in
+           if(success) {
+                if journals.count > 0 {
+                    self.journals = journals
+                    self.tableView.reloadData()
+                    guard let detail = self.detail?.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: false) else {return}
+                } else {
+                    self.addJournal()
+                }
+           } else {
+                
+           }
+       }
+
         guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
                if let vc = vc as?  DetailController {
                    return  true
                }
                return false
-           }) as? DetailController else {return}
-        detail.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: true)
+        }) as? DetailController else {return}
+        self.detail = detail
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,13 +71,7 @@ class JournalController: UITableViewController {
     
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedJournal  = journals[indexPath.row]
-        
-        guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
-            if let vc = vc as?  DetailController {
-                return  true
-            }
-            return false
-        }) as? DetailController else {return}
+        guard let detail = detail else {return}
         detail.journalListViewController(self, didSelectJournal: selectedJournal, indexPath: indexPath, first: false)
         self.splitViewController?.showDetailViewController(detail, sender: self)
     }
@@ -78,15 +81,16 @@ class JournalController: UITableViewController {
     }
   
     @IBAction func addToTable(_ sender: UIButton) {
-        journals.insert((Journal(title: "New Story", text: "Write a story!")), at: 0)
-        guard let detail = self.splitViewController?.children.first(where: { (vc) -> Bool in
-               if let vc = vc as?  DetailController {
-                   return  true
-               }
-               return false
-           }) as? DetailController else {return}
-        detail.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: false)
-        self.tableView.reloadData()
+        addJournal()
+    }
+    
+    func addJournal() {
+        let newJournal = Journal(title: "New Story", text: "Write a story!")
+          journals.insert(newJournal, at: 0)
+          FirebaseManager.shared.add(journal: newJournal)
+          self.tableView.reloadData()
+          guard let detail = detail else {return}
+          detail.journalListViewController(self, didSelectJournal: journals[0], indexPath: IndexPath(row: 0, section: 0), first: false)
     }
     
 }

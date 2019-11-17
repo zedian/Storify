@@ -33,7 +33,7 @@ class FirebaseManager {
                 
                 // Update id
                 let doc = self.db.collection("Journals").document(ref!.documentID)
-
+                journal.id = ref!.documentID
                 doc.updateData([
                     "id": ref!.documentID
                 ]) { err in
@@ -91,7 +91,7 @@ class FirebaseManager {
         
         db.collection("Journals").document(id).delete() { err in
             if let err = err {
-                completionHandler(false, err as! String)
+                completionHandler(false, err.localizedDescription)
             } else {
                 completionHandler(true, "none")
             }
@@ -99,7 +99,9 @@ class FirebaseManager {
     }
     
     
-    func update(id: String, field: String, data: String, completionHandler: @escaping (Bool, String) -> ()) {
+    func update(journal: Journal, field: String, completionHandler: @escaping (Bool, String) -> ()) {
+        let id = journal.id
+        let data = journal.text
         
         let doc = self.db.collection("Journals").document(id)
 

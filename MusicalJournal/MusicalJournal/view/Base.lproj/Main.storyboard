@@ -33,15 +33,14 @@
                                     <segue destination="dvS-rx-1wO" kind="embed" identifier="playSpotify" id="CRA-eo-M4v"/>
                                 </connections>
                             </containerView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-K4-boa">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-K4-boa">
                                 <rect key="frame" x="0.0" y="83.5" width="834" height="431"/>
                                 <color key="backgroundColor" red="0.10196178409999999" green="0.10195901239999999" blue="0.1019608751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Story" placeholder="New Story" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ4-4L-BJs">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Story" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ4-4L-BJs">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="83.5"/>
                                 <color key="backgroundColor" red="0.10334606109324762" green="0.10334606109324762" blue="0.10334606109324762" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -51,6 +50,19 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zU-QO-FB1">
+                                <rect key="frame" x="759" y="15" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ylz-D5-9Jh"/>
+                                    <constraint firstAttribute="width" constant="60" id="gyz-Y4-qYN"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.75307992788461542" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePressed:" destination="yWM-5t-MmO" eventType="touchUpInside" id="3xf-cA-HJj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -68,9 +80,11 @@
                             <constraint firstItem="Djj-K4-boa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="bcH-ml-Xd0"/>
                             <constraint firstItem="P3I-D6-eUc" firstAttribute="height" secondItem="Djj-K4-boa" secondAttribute="height" id="byp-LF-CeD"/>
                             <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="cZ4-4L-BJs" secondAttribute="trailing" id="dBF-Hr-PuF"/>
+                            <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="2zU-QO-FB1" secondAttribute="trailing" constant="15" id="fRH-zl-2cs"/>
                             <constraint firstItem="cZ4-4L-BJs" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" id="iCr-3z-46I"/>
                             <constraint firstItem="Djj-K4-boa" firstAttribute="trailing" secondItem="6Ex-1S-Vdi" secondAttribute="trailing" id="mkB-mp-8iB"/>
                             <constraint firstItem="Djj-K4-boa" firstAttribute="leading" secondItem="6Ex-1S-Vdi" secondAttribute="leading" id="p3N-mV-lMw"/>
+                            <constraint firstItem="2zU-QO-FB1" firstAttribute="top" secondItem="6Ex-1S-Vdi" secondAttribute="top" constant="15" id="quo-p1-ORf"/>
                             <constraint firstItem="BNi-Zz-hS1" firstAttribute="bottom" secondItem="6Ex-1S-Vdi" secondAttribute="bottom" id="s9D-Xm-orF"/>
                             <constraint firstItem="6Ex-1S-Vdi" firstAttribute="trailing" secondItem="sRe-pX-nwS" secondAttribute="trailing" id="tLD-fV-A5W"/>
                             <constraint firstItem="P3I-D6-eUc" firstAttribute="top" secondItem="Djj-K4-boa" secondAttribute="bottom" id="tNe-f0-DNc"/>
@@ -82,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="clearView" destination="sRe-pX-nwS" id="iKh-IX-de9"/>
+                        <outlet property="deleteButton" destination="2zU-QO-FB1" id="Dz7-DB-O3I"/>
                         <outlet property="spotifyView" destination="BNi-Zz-hS1" id="jfF-xO-evM"/>
                         <outlet property="textField" destination="cZ4-4L-BJs" id="4SN-CY-9TO"/>
                         <outlet property="textView" destination="Djj-K4-boa" id="8vL-BN-pEv"/>
