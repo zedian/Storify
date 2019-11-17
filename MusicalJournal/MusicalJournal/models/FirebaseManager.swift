@@ -82,8 +82,47 @@ class FirebaseManager {
             completionHandler(false, nil)
             return
           }
-          print("Current data: \(data)")
+          //print("Current data: \(data)")
             completionHandler(true, Journal.init(title: data["title"] as! String, text: data["text"] as! String, id: data["id"] as! String))
+        }
+    }
+    
+    func listenToAll(completionHandler: @escaping (Bool, String?, [Journal]?) -> ()) {
+        db.collection("Journals").addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                completionHandler(false, nil, nil)
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                let journal = Journal(
+                    title: diff.document.data()["title"] as! String,
+                    text: diff.document.data()["text"] as! String,
+                    id: diff.document.data()["id"] as! String)
+                
+                
+                if (diff.type == .added) {
+                    //print("New Journal: \(diff.document.data())")
+                    
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"added", data)
+                    }
+                }
+                if (diff.type == .modified) {
+                    //print("Modified Journal: \(diff.document.data())")
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"modified",data)
+                    }
+                    
+                }
+                if (diff.type == .removed) {
+                    //print("Removed Journal: \(diff.document.data())")
+                    _ = self.getJournals { (success, data) in
+                        completionHandler(true,"removed",data)
+                    }
+                    
+                }
+            }
         }
     }
     
@@ -115,7 +154,7 @@ class FirebaseManager {
             field : data
         ]) { err in
             if let err = err {
-                completionHandler(false, err as! String)
+                completionHandler(false, err.localizedDescription)
                 print("Error updating document: \(err)")
             } else {
                 completionHandler(true, "none")

@@ -228,17 +228,21 @@
             <objects>
                 <viewController id="dvS-rx-1wO" customClass="SpotifyController" customModule="MusicalJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Cn-xR-edM">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6O-dM-o47">
-                                <rect key="frame" x="327" y="75" width="180" height="50"/>
+                                <rect key="frame" x="327" y="35" width="180" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="TSC-Wx-dRL"/>
                                     <constraint firstAttribute="height" constant="50" id="b24-r4-NTb"/>
                                 </constraints>
                                 <state key="normal" title="CONNECT"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXb-Ai-ZtF">
+                                <rect key="frame" x="20" y="20" width="75" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.10196178409999999" green="0.10195901239999999" blue="0.1019608751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -253,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOA-3S-5aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105.0359712230218" y="-31.294964028776981"/>
+            <point key="canvasLocation" x="-1105.7553956834533" y="-31.294964028776981"/>
         </scene>
         <!--Spotify Controller-->
         <scene sceneID="Nda-uR-Zrc">

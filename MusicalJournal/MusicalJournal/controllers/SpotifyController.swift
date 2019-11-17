@@ -59,33 +59,6 @@ class SpotifyController: UIViewController {
         super.viewDidLoad()
         SpotifyManager.shared.appRemote.delegate = self
 
-        view.addSubview(connectLabel)
-        view.addSubview(disconnectButton)
-        view.addSubview(imageView)
-        view.addSubview(trackLabel)
-        view.addSubview(pauseAndPlayButton)
-
-        let constant: CGFloat = 16.0
-
-        disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        disconnectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: trackLabel.topAnchor, constant: -constant).isActive = true
-
-        trackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        trackLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: constant).isActive = true
-        trackLabel.bottomAnchor.constraint(equalTo: connectLabel.topAnchor, constant: -constant).isActive = true
-
-        pauseAndPlayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pauseAndPlayButton.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: constant).isActive = true
-        pauseAndPlayButton.widthAnchor.constraint(equalToConstant: 50)
-        pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50)
-        pauseAndPlayButton.sizeToFit()
-
-        disconnectButton.sizeToFit()
-
         connectButton.addTarget(self, action: #selector(didTapConnect(_:)), for: .touchUpInside)
         disconnectButton.addTarget(self, action: #selector(didTapDisconnect(_:)), for: .touchUpInside)
 

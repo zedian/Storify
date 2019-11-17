@@ -62,6 +62,7 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
     var recommended: Bool = false
     var recommendations: [String] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +71,8 @@ class DetailController: UIViewController, JournalListViewControllerDelegate {
         self.view.bringSubviewToFront(clearView)
           clearView.isUserInteractionEnabled = true
           clearView.alpha = 0
-        // Do any additional setup after loading the view.
+//        // Do any additional setup after loading the view.
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -181,6 +183,7 @@ extension DetailController: UITextViewDelegate {
         journal.text = self.textView.text
         guard let indexPath = indexPath else {return}
         mainVC?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+        
         FirebaseManager.shared.update(journal: journal, field: "text") { (success, error) in
             if(success) {
                 
@@ -188,6 +191,7 @@ extension DetailController: UITextViewDelegate {
                 
             }
         }
+        print("done")
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -198,6 +202,7 @@ extension DetailController: UITextViewDelegate {
             textView.text = "Write a story!"
             textView.textColor = UIColor.lightGray
         }
+        
     }
 }
 
@@ -211,8 +216,8 @@ extension DetailController: UITextFieldDelegate {
                 journal.title = text
             } else {
                 journal.title = "New Story"
-                
             }
+            
             FirebaseManager.shared.update(journal: journal, field: "title") { (success, error) in
                if(success) {
                    
@@ -323,6 +328,13 @@ extension DetailController: UICollectionViewDelegate, UICollectionViewDataSource
         let newText  = self.textView.text.replacingLastOccurrenceOfString(string, with: recommendedText)
         journal.text = newText
         self.textView.text = newText
+        FirebaseManager.shared.update(journal: journal, field: "text") { (success, string) in
+            if(success) {
+                
+            } else {
+                
+            }
+        }
         makeRecommendation()
     }
     
