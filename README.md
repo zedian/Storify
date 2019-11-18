@@ -1,5 +1,6 @@
 # Storify - Codejam 2019
 
+https://www.youtube.com/watch?v=SEH8tkEyL84&feature=youtu.be
 > Watch the video! And open the sound!
 
 ## Inspiration
